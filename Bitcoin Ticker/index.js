@@ -2,6 +2,10 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const request = require('request');
 
+// Requiring secrets file 
+const secrets = require("./secrets"); 
+
+
 app=express();
 app.use(bodyParser.urlencoded(
   { extended:true }
@@ -21,7 +25,7 @@ app.post("/", function (req,res){
         url:baseURL,
         method:"GET",
         headers: {
-            'x-ba-key': 'ZDNmYWI2MjIxMmY5NDY5NzkwYTk4OTExNGJiNTIyOTY'
+            'x-ba-key': secrets['api-key']
         },
         qs:{
             from:crypto,
