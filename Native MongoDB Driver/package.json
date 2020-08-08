@@ -1,0 +1,14 @@
+{
+  "name": "fruits-project",
+  "version": "1.0.0",
+  "description": "Simple Fruits Project to implement native mongo db driver with nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Harshit Saraswat",
+  "license": "ISC",
+  "dependencies": {
+    "mongodb": "^3.6.0"
+  }
+}
