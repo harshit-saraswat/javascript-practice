@@ -8,15 +8,23 @@ mongoose.connect(url, { useUnifiedTopology: true ,useNewUrlParser: true });
 
 // Fruits Schema
 const fruitSchema = new mongoose.Schema({
-    name: String,
-    rating: Number,
+    name: {
+        type: String,
+        required: [true, "No name specified."]
+    },
+    rating: {
+        type: Number,
+        min: 0,
+        max: 10
+    },
     review: String
 });
 
 // People Schema
 const peopleSchema = new mongoose.Schema({
     name: String,
-    age: Number
+    age: Number,
+    favoriteFruit: fruitSchema
 });
 
 const Fruit = mongoose.model("Fruit", fruitSchema);
@@ -51,16 +59,21 @@ const person = new Person({
     age: 27
 });
 
-// apple.save();
-// person.save();
+const person2 = new Person({
+    name: "Amy",
+    age: 12,
+    favoriteFruit : mango
+});
+apple.save();
+person2.save();
 
-// Fruit.insertMany([banana,mango,orange], function (err){
-//     if (err){
-//         console.log(err);
-//     } else{
-//         console.log("Successfully saved all the fruits!");
-//     }
-// });
+Fruit.insertMany([banana,mango,orange], function (err){
+    if (err){
+        console.log(err);
+    } else{
+        console.log("Successfully saved all the fruits!");
+    }
+});
 
 Fruit.find(function(err,fruits){
    if (err){
@@ -71,4 +84,28 @@ Fruit.find(function(err,fruits){
         console.log(fruit.name);
        });
    }
+});
+
+Person.updateOne({name: "Jane"}, {favoriteFruit: banana}, function(err){
+    if (err){
+        console.log(err);
+    }else{
+        console.log("Update Successfuly!");
+    }
+});
+
+Person.updateOne({name: "John"}, {favoriteFruit: apple}, function(err){
+    if (err){
+        console.log(err);
+    }else{
+        console.log("Update Successfuly!");
+    }
+});
+
+Fruit.deleteMany({name:'Apple'},function(err){
+    if (err){
+        console.log(err);
+    }else{
+        console.log("Successfully deleted.");
+    }
 });
