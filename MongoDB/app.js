@@ -54,19 +54,21 @@ const person = new Person({
 // apple.save();
 // person.save();
 
-Fruit.insertMany([banana,mango,orange], function (err){
-    if (err){
-        console.log(err);
-    } else{
-        console.log("Successfully saved all the fruits!");
-    }
+// Fruit.insertMany([banana,mango,orange], function (err){
+//     if (err){
+//         console.log(err);
+//     } else{
+//         console.log("Successfully saved all the fruits!");
+//     }
+// });
+
+Fruit.find(function(err,fruits){
+   if (err){
+       console.log(err);
+   } else{
+       mongoose.connection.close();
+       fruits.forEach((fruit)=>{
+        console.log(fruit.name);
+       });
+   }
 });
-
-async function readFruits(db) {
-
-    const collection = db.collection('fruits');
-    const result = await collection.find({}).toArray();
-    console.log(result);
-}
-
-// run().catch(console.dir);
