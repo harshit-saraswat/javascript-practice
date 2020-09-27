@@ -5,14 +5,24 @@ function App() {
     fname: "",
     lname: ""
   });
-  // const [lname, setLName] = React.useState("");
 
-  function updateFName(event) {
-    setFName(event.target.value);
-  }
+  function updateName(event) {
+    const newValue = event.target.value;
+    const inputName = event.target.name;
 
-  function updateLName(event) {
-    setLName(event.target.value);
+    setFullName((prevValue) => {
+      if (inputName === "fName") {
+        return {
+          fname: newValue,
+          lname: prevValue.lname
+        };
+      } else {
+        return {
+          fname: prevValue.fname,
+          lname: newValue
+        };
+      }
+    });
   }
 
   return (
@@ -23,15 +33,15 @@ function App() {
       <form>
         <input
           name="fName"
-          onChange={updateFName}
+          onChange={updateName}
           placeholder="First Name"
-          value={fname}
+          value={fullName.fname}
         />
         <input
           name="lName"
-          onChange={updateLName}
+          onChange={updateName}
           placeholder="Last Name"
-          value={lname}
+          value={fullName.lname}
         />
         <button>Submit</button>
       </form>
