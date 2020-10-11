@@ -9,3 +9,10 @@ for (var i = 0; i < data.length; i++) {
 data.forEach(val=>{
 	console.log(val);
 });
+
+// While Loop
+var i=0;
+while (i < data.length) {
+  console.log(data[i]);
+  i++;
+}
