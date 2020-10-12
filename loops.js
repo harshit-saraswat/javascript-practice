@@ -10,6 +10,13 @@ data.forEach(val=>{
 	console.log(val);
 });
 
+// For In Loop
+var person = {fname:"John", lname:"Doe", age:25};
+var i;
+for (i in person) {
+  console.log(person[i]);
+}
+
 // While Loop
 var i=0;
 while (i < data.length) {
