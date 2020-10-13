@@ -17,6 +17,11 @@ for (i in person) {
   console.log(person[i]);
 }
 
+// For of Loop
+for (i of data) {
+  console.log(i);
+}
+
 // While Loop
 var i=0;
 while (i < data.length) {
