@@ -28,3 +28,10 @@ while (i < data.length) {
   console.log(data[i]);
   i++;
 }
+
+// Do While Loop
+do {
+  console.log(data[i]);
+  i++;
+}
+while (i < data.length);
