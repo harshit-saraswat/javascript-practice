@@ -21,3 +21,17 @@ if (time < 12) {
 }else{
 	console.log("Good Night!");
 }
+
+// Switch Case
+var day="Monday";
+
+switch(day){
+	case "Monday":
+		console.log("Back to work!");
+		break;
+	case "Sunday":
+		console.log("Yay, holiday!");
+		break;
+	default:
+		console.log("When is sunday?");
+}
