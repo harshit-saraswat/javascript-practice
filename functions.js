@@ -20,3 +20,12 @@ const count = function(array) {
 
 var x=[1,2,3];
 console.log(count(x));
+
+// Arrow Function
+const absValue = (number) => {
+  if (number < 0) {
+    return -number;
+  }
+  return number;
+}
+console.log(absValue(-10));
