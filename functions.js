@@ -29,3 +29,14 @@ const absValue = (number) => {
   return number;
 }
 console.log(absValue(-10));
+
+// Generator Function
+function* indexGenerator(){
+  var index = 0;
+  while(true) {
+    yield index++;
+  }
+}
+const g = indexGenerator();
+console.log(g.next().value);
+console.log(g.next().value);
