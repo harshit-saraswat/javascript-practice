@@ -40,3 +40,11 @@ function* indexGenerator(){
 const g = indexGenerator();
 console.log(g.next().value);
 console.log(g.next().value);
+
+// New Function
+(function() {
+   'use strict';
+   const global = new Function('return this')();
+   console.log(global === window); // => true
+   console.log(this === window);   // => false
+})();
